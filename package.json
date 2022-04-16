@@ -2,7 +2,7 @@
 	"name": "advanced-react",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://dpy3b.github.io/",
+	"homepage": "https://dpy3b.github.io/advanced-react",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.4",
 		"@testing-library/react": "^13.0.1",
