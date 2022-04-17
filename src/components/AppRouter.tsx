@@ -17,7 +17,7 @@ const AppRouter: FC = () => {
 					key={route.path}
 				/>
 			))}
-			<Route path="*" element={<Navigate replace to="/" />} />{' '}
+			<Route path="*" element={<Navigate replace to="/advanced-react/" />} />{' '}
 			{/* редирект с любой несуществующей на главную для залогинненых */}
 		</Routes>
 	) : (
@@ -29,7 +29,10 @@ const AppRouter: FC = () => {
 					key={route.path}
 				/>
 			))}
-			<Route path="*" element={<Navigate replace to="/login" />} />{' '}
+			<Route
+				path="*"
+				element={<Navigate replace to="advanced-react/login" />}
+			/>{' '}
 			{/* редирект с любой несуществующей на логин для незалогинненых */}
 		</Routes>
 	);
