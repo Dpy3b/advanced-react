@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/advanced-react/static/css/main.dac46afd.css",
-    "main.js": "/advanced-react/static/js/main.42047695.js",
+    "main.js": "/advanced-react/static/js/main.b8f74793.js",
     "index.html": "/advanced-react/index.html",
     "main.dac46afd.css.map": "/advanced-react/static/css/main.dac46afd.css.map",
-    "main.42047695.js.map": "/advanced-react/static/js/main.42047695.js.map"
+    "main.b8f74793.js.map": "/advanced-react/static/js/main.b8f74793.js.map"
   },
   "entrypoints": [
     "static/css/main.dac46afd.css",
-    "static/js/main.42047695.js"
+    "static/js/main.b8f74793.js"
   ]
 }
