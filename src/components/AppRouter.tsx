@@ -31,8 +31,8 @@ const AppRouter: FC = () => {
 			))}
 			<Route
 				path="*"
-				element={<Navigate replace to="advanced-react/login" />}
-			/>{' '}
+				element={<Navigate replace to="/advanced-react/login" />}
+			/>
 			{/* редирект с любой несуществующей на логин для незалогинненых */}
 		</Routes>
 	);
