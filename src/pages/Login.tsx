@@ -6,7 +6,7 @@ const Login: FC = () => {
 	return (
 		<Layout>
 			<Row justify="center" align="middle" className="h100">
-				<Card>
+				<Card style={{ width: 450}}>
 					<LoginForm />
 				</Card>
 			</Row>

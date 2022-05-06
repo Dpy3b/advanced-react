@@ -6,6 +6,7 @@ import { privateRoutes, publicRoutes } from '../router';
 import { IRoute } from '../router';
 import { RouteNames } from '../router';
 const AppRouter: FC = () => {
+	// свой хук для выцепления конкретного состояния из конкретного редюсера
 	const {isAuth} = useTypedSelector(state => state.auth)
 
 	return isAuth ? (

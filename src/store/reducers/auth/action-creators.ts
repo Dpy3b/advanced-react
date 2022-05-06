@@ -10,6 +10,7 @@ import { AppDispatch } from './../../index';
 import axios from 'axios';
 import UserServise from '../../../api/UserService';
 
+// наши экшн криэйторы, обертка для них
 export const AuthActionCreators = {
 	setUser: (user: IUser): SetUserAction => ({
 		type: AuthActionsEnum.SET_USER,
@@ -27,6 +28,7 @@ export const AuthActionCreators = {
 		type: AuthActionsEnum.SET_ERROR,
 		payload,
 	}),
+	// ниже уже асинхронные экшн криэйторы
 	login:
 		(username: string, password: string) => async (dispatch: AppDispatch) => {
 			try {

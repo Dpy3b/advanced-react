@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 
+// кастомизация даты для событий
 export const formatDate = (date: Date): string =>{
 	const year = date.getFullYear();
 	const month =

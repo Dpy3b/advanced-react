@@ -1,5 +1,7 @@
 import { IUser } from './../../../models/IUser';
 import { AuthState, AuthAction, AuthActionsEnum } from './types';
+
+// объект, который будет хранить дефолтное значение состояния этого редюсера
 const initialState: AuthState = {
 	isAuth: false,
 	error: '',
@@ -11,6 +13,8 @@ export default function authReducer(
 	state = initialState,
 	action: AuthAction
 ): AuthState {
+	// в зависимости от типа экшна будем возвращать разное состояние
+	// во всех кейсах мы возвращаем предыдущее состояние через деструктуризацию, но изменяеем соотв. поле на то значение, которое получаем из пейлоад
 	switch (action.type) {
 		case AuthActionsEnum.SET_AUTH:
 			return { ...state, isAuth: action.payload, isLoading: false };

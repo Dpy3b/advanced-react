@@ -8,17 +8,17 @@ import { AuthActionCreators } from '../store/reducers/auth/action-creators';
 import { useActions } from '../hooks/useActions';
 
 const Navbar: FC = () => {
-	const router = useNavigate();
-	const {isAuth, user} = useTypedSelector(state => state.auth) // получаем как факт авторизации, так и имя конкретного юзера
-	const {logout} = useActions()
+	const router = useNavigate(); // управление маршрутом (url'ом)
+	const { isAuth, user } = useTypedSelector(state => state.auth); // получаем как факт авторизации, так и имя конкретного юзера
+	const { logout } = useActions();
 	return (
 		<Layout.Header>
-			<Row justify="end">
+			<Row justify='end'>
 				{isAuth ? (
 					/* реакт.реактФрагмент типа */
 					<>
 						<div style={{ color: 'white' }}>{user.username}</div>
-						<Menu theme="dark" selectable={false} mode="horizontal">
+						<Menu theme='dark' selectable={false} mode='horizontal'>
 							{/* в отличии от useHistory нам не нужен метод пуш у роутера (просто по дефолту пишем путь) */}
 							<Menu.Item onClick={logout} key={1}>
 								Выйти
@@ -26,7 +26,7 @@ const Navbar: FC = () => {
 						</Menu>
 					</>
 				) : (
-					<Menu theme="dark" selectable={false}>
+					<Menu theme='dark' selectable={false} mode='horizontal' style={{flex: '1 1 auto', justifyContent: 'flex-end'}}>
 						{/* в отличии от useHistory нам не нужен метод пуш у роутера (просто по дефолту пишем путь) */}
 						<Menu.Item onClick={() => router(RouteNames.LOGIN)} key={1}>
 							Логин

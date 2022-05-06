@@ -1,11 +1,13 @@
 import { IUser } from './../../../models/IUser';
+
+// определяем здесь поля, которые будут в нашем состоянии (в редюсере)
 export interface AuthState {
 	isAuth: boolean;
-	user: IUser;
+	user: IUser; // логин и пароль
 	isLoading: boolean; // будет отвечать за индикацию загрузки
 	error: string; // при неуспешном логине будем хранить текстовую ошибку
 }
-
+// описывает поля экшна который у нас будет
 export enum AuthActionsEnum {
 	SET_AUTH = 'SET_AUTH',
 	SET_ERROR = 'SET_ERROR',
@@ -35,4 +37,4 @@ export interface SetIsLoadingAction {
 
 
 
-export type AuthAction = SetAuthAction | SetErrorAction | SetUserAction | SetIsLoadingAction; // обобщаем экшны в тип
+export type AuthAction = SetAuthAction | SetErrorAction | SetUserAction | SetIsLoadingAction; // обобщаем экшны в тип для объединения интерфейсов

@@ -20,10 +20,11 @@ const LoginForm: FC = () => {
 
 	return (
 		<Form onFinish={submit}>
-			{error && <div style={{ color: 'coral' }}>{error}</div>}
+			{error && <div style={{ color: 'coral', marginBottom: 10 }}>{error}</div>}
 			<Form.Item
 				label="Имя пользователя"
 				name="username"
+				/* пропс рулз предназначен для валидации */
 				rules={[
 					/* { required: true, message: 'Пожалуйста, введите имя пользователя!' }, */
 					rules.required('Пожалуйста, введите имя пользователя!'),
