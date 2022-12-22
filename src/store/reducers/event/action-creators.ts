@@ -5,7 +5,6 @@ import { EventActionEnum, SetGuestsAction, SetEventsAction } from './types';
 import axios from 'axios';
 import UserServise from '../../../api/UserService';
 
-
 export const EventActionCreators = {
 	SetGuests: (payload: IUser[]): SetGuestsAction => ({
 		type: EventActionEnum.SET_GUESTS,
@@ -15,39 +14,33 @@ export const EventActionCreators = {
 		type: EventActionEnum.SET_EVENTS,
 		payload,
 	}),
-	fetchGuests: ()=> async (dispatch: AppDispatch) => {
+	fetchGuests: () => async (dispatch: AppDispatch) => {
 		try {
 			const response = await UserServise.getUsers();
-			dispatch(EventActionCreators.SetGuests(response.data))
+			dispatch(EventActionCreators.SetGuests(response.data));
 		} catch (e) {
 			console.log(e);
-
 		}
 	},
-	createEvent: (event: IEvent) => async (dispatch: AppDispatch)=> {
+	createEvent: (event: IEvent) => async (dispatch: AppDispatch) => {
 		try {
-			const events = localStorage.getItem('events') || '[]'
-			const json = JSON.parse(events) as IEvent[]
-			json.push(event)
-			dispatch(EventActionCreators.SetEvents(json))
-			localStorage.setItem('events', JSON.stringify(json))
+			const events = localStorage.getItem('events') || '[]';
+			const json = JSON.parse(events) as IEvent[];
+			json.push(event);
+			dispatch(EventActionCreators.SetEvents(json));
+			localStorage.setItem('events', JSON.stringify(json));
 		} catch (e) {
 			console.log(e);
-
 		}
 	},
-	fetchEvents: (username: string) =>  async (dispatch: AppDispatch)  => {
+	fetchEvents: (username: string) => async (dispatch: AppDispatch) => {
 		try {
-			const events = localStorage.getItem('events') || '[]'
-			const json = JSON.parse(events) as IEvent[]
-			const currentUserEvents = json.filter(
-				ev => ev.author === username || ev.guest === username
-			);
-			dispatch(EventActionCreators.SetEvents(currentUserEvents))
+			const events = localStorage.getItem('events') || '[]';
+			const json = JSON.parse(events) as IEvent[];
+			const currentUserEvents = json.filter(ev => ev.author === username || ev.guest === username);
+			dispatch(EventActionCreators.SetEvents(currentUserEvents));
 		} catch (e) {
 			console.log(e);
-
 		}
-	}
-
+	},
 };

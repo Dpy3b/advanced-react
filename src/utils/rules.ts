@@ -1,13 +1,14 @@
 import moment, { Moment } from 'moment';
 
-// штуки ниже из Moment.js
-// тут короче кастомизация валидации
+
 export const rules = {
 	// тут мы возвращаем ОБЪЕКТ, он просто обернут в круглые скобки т.к. {{...}} не прокатило бы
+	// тут короче кастомизация валидации
 	required: (message: string = 'Обязательное поле!') => ({
 		required: true,
 		message,
 	}),
+	// штуки ниже из Moment.js
 	isDateAfter: (message: string) => () => ({
 		validator(_: any, value: Moment) {
 			if (value.isSameOrAfter(moment())) {

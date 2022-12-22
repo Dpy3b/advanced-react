@@ -22,27 +22,31 @@ const LoginForm: FC = () => {
 		<Form onFinish={submit}>
 			{error && <div style={{ color: 'coral', marginBottom: 10 }}>{error}</div>}
 			<Form.Item
-				label="Имя пользователя"
-				name="username"
+				label='Имя пользователя'
+				name='username'
 				/* пропс рулз предназначен для валидации */
 				rules={[
 					/* { required: true, message: 'Пожалуйста, введите имя пользователя!' }, */
 					rules.required('Пожалуйста, введите имя пользователя!'),
 				]}
 			>
-				<Input value={username} onChange={(e=> setUsername(e.target.value))}/>
+				<Input value={username} onChange={e => setUsername(e.target.value)} />
 				{/* как пропс value передаём в инпуст состояние, в onChange изменяем состояние на то, которое получаем из инпута */}
 			</Form.Item>
 
 			<Form.Item
-				label="Пароль"
-				name="password"
+				label='Пароль'
+				name='password'
 				rules={[rules.required('Пожалуйста, введите пароль!')]} // при таком подходе нам необязательно знать, какие поля есть у объекта
 			>
-				<Input type='password' value={password} onChange={(e=> setPassword(e.target.value))}/>
+				<Input.Password
+					visibilityToggle
+					value={password}
+					onChange={e => setPassword(e.target.value)}
+				/>
 			</Form.Item>
 			<Form.Item>
-				<Button type="primary" htmlType="submit" loading={isLoading}>
+				<Button type='primary' htmlType='submit' loading={isLoading}>
 					Войти
 				</Button>
 			</Form.Item>

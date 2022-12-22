@@ -7,7 +7,7 @@ import { IRoute } from '../router';
 import { RouteNames } from '../router';
 const AppRouter: FC = () => {
 	// свой хук для выцепления конкретного состояния из конкретного редюсера
-	const {isAuth} = useTypedSelector(state => state.auth)
+	const {isAuth} = useTypedSelector(state => state.auth) // выцепили переменную isAuth из состояния в редюсере с помощью деструктуризации
 
 	return isAuth ? (
 		<Routes>

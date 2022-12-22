@@ -5,13 +5,13 @@ import { IEvent } from '../models/IEvent';
 import { formatDate } from '../utils/date';
 // описываем в интерфейсе какие пропсы будет ожидать компонент
 interface EventCalendarProps {
-	events: IEvent[];
+	events: IEvent[]; //массив событий
 }
 // указываем как дженейрик интерфейс с пропсами
-const EventCalendar: FC<EventCalendarProps> = props => {
+const EventCalendar: FC<EventCalendarProps> = ({events}) => {
 	function dateCellRender(value: Moment) {
 		const formatedDate = formatDate(value.toDate());
-		const currentDayEvents = props.events.filter(
+		const currentDayEvents = events.filter(
 			ev => ev.date === formatedDate
 		);
 		return (

@@ -9,7 +9,7 @@ import { useActions } from '../hooks/useActions';
 
 const Navbar: FC = () => {
 	const router = useNavigate(); // управление маршрутом (url'ом)
-	const { isAuth, user } = useTypedSelector(state => state.auth); // получаем как факт авторизации, так и имя конкретного юзера
+	const { isAuth, user } = useTypedSelector(state => state.auth); // получаем как факт авторизации, так и имя конкретного юзера // выцепляем нужные нам переменные хранящиеся в состоянии из редюсера
 	const { logout } = useActions();
 	return (
 		<Layout.Header>
@@ -23,6 +23,7 @@ const Navbar: FC = () => {
 							<Menu.Item onClick={logout} key={1}>
 								Выйти
 							</Menu.Item>
+
 						</Menu>
 					</>
 				) : (

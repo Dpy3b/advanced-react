@@ -29,6 +29,7 @@ export const AuthActionCreators = {
 		payload,
 	}),
 	// ниже уже асинхронные экшн криэйторы
+	// ниже опять же прекол с редакс-фанк
 	login:
 		(username: string, password: string) => async (dispatch: AppDispatch) => {
 			try {
@@ -36,6 +37,7 @@ export const AuthActionCreators = {
 				// используем искуственную задержку для наглядности, т.к. работаем не с реальным сервером
 				setTimeout(async () => {
 					const response = await UserServise.getUsers() // data - массив пользователей. Указываем это дженейриком и ниже TS уже даёт автокомплит
+					console.log(response)
 					const mockUser = response.data.find(
 						user => user.username === username && user.password === password // вот здесь забыл написать user.password и было просто password
 					);
@@ -58,9 +60,9 @@ export const AuthActionCreators = {
 		},
 	logout: () => async (dispatch: AppDispatch) => {
 		//ниже убираем try/catch, т.к. здесь в принципе ничего страшного не может произойти
-		localStorage.removeItem('auth');
-		localStorage.removeItem('username');
-		dispatch(AuthActionCreators.setUser({} as IUser));
-		dispatch(AuthActionCreators.setIsAuth(false));
+		localStorage.removeItem('auth'); // удаляем флаг авторизованности
+		localStorage.removeItem('username'); // удаляем юзернейм
+		dispatch(AuthActionCreators.setUser({} as IUser)); // ОБНУЛЯЕМ состояние
+		dispatch(AuthActionCreators.setIsAuth(false)); // указываем состояние авторизации в фолс, чтобы нас редиректнуло на страницу с логином, это происходит через условную отрисовку, логика написана в AppRouter
 	},
 };
